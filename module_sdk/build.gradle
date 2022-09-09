@@ -1,0 +1,72 @@
+/*plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+}*/
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion rootProject.android.compileSdk
+    defaultConfig {
+        minSdkVersion rootProject.android.minSdk
+        targetSdkVersion rootProject.android.targetSdk
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures {//开启布局绑定功能
+        viewBinding true
+    }
+}
+
+dependencies {
+
+
+    implementation rootProject.despsLibs.appcompat
+    implementation rootProject.despsLibs.material
+    testImplementation rootProject.despsLibs.junit
+    androidTestImplementation rootProject.despsLibs.androidxJunit
+    androidTestImplementation rootProject.despsLibs.androidxEspressoCore
+
+    implementation rootProject.despsLibs.lifecycle_extensions
+    implementation rootProject.despsLibs.lifecycle_compiler
+    implementation rootProject.despsLibs.lifecycle_viewmodel_ktl
+
+    implementation rootProject.despsLibs.coreKtx
+    implementation rootProject.despsLibs.kotlinStdlibJdk7
+
+
+    implementation rootProject.despsLibs.multidex
+    implementation rootProject.despsLibs.retrofit2
+    implementation rootProject.despsLibs.retrofit2ConverterGson
+    implementation rootProject.despsLibs.retrofit2AdapterRxjava2
+    implementation rootProject.despsLibs.okhttp3LoggingInterceptor
+
+    //dagger
+    implementation rootProject.despsLibs.dagger2
+    kapt rootProject.despsLibs.daggerCompiler
+
+    // room
+    implementation rootProject.despsLibs.roomKtx
+    kapt rootProject.despsLibs.roomCompiler
+    androidTestImplementation rootProject.despsLibs.roomTesting
+    implementation rootProject.despsLibs.roomRxJava2
+
+    implementation rootProject.despsLibs.glide
+    implementation rootProject.despsLibs.rximagepicker
+
+}

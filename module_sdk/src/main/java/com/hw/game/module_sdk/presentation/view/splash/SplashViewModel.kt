@@ -1,0 +1,43 @@
+package com.hw.game.module_sdk.presentation.view.splash
+
+import android.annotation.SuppressLint
+import android.app.Application
+import androidx.lifecycle.ViewModel
+import com.falcon.restaurants.domain.util.Logger
+import com.hw.game.module_sdk.presentation.view.meal.MealViewModel
+import com.hw.game.module_sdk.presentation.view.restaurant.RestaurantViewModel
+import io.reactivex.Completable
+import io.reactivex.schedulers.Schedulers
+
+class SplashViewModel(
+    val application: Application,
+    val restaurantViewModel: RestaurantViewModel,
+    val mealViewModel:MealViewModel
+    ):ViewModel() {
+    val TAG:String ="SplashViewModel";
+    interface AllUpsertedListener{
+        fun onSuccess()
+        fun onFailed(e:Throwable)
+    }
+
+    @SuppressLint("CheckResult") //为什么要加这个，不加有什么影响呢？？
+    fun fetchAllData(allUpsertedListener: AllUpsertedListener){
+        val mealCompletable:Completable = mealViewModel.fetchAndUpsert()
+        val restaurantCompletable: Completable = restaurantViewModel.fetchAndUpsert()
+        val all = Completable.mergeArray(mealCompletable,restaurantCompletable)//Completable 得到complete 或者 error
+        all.subscribeOn(Schedulers.io())
+            .observeOn(Schedulers.io())
+            .subscribe(
+                { Logger.log(TAG,  "onComplete: ")
+                    allUpsertedListener.onSuccess()
+                },
+                { throwable -> Logger.log( TAG, "onError: " + throwable.localizedMessage)
+                    allUpsertedListener.onFailed(throwable)
+                })
+
+        Completable.complete()
+
+    }
+
+
+}

@@ -1,0 +1,79 @@
+ext{
+    android = [
+            applicationId  :"com.hw.game.sdk",
+            compileSdk     :33,
+            targetSdk      :33,
+            minSdk         :21,
+            versionCode    :1,
+            versionName    :"1.0"
+    ]
+    depsVersion = [
+            multidex               :"2.0.1",
+
+            // lifecycle components
+            lifecycle_extensions :"2.0.0",
+            lifecycle_compiler :"2.0.0",
+            lifecycle_viewmodel_ktl :"2.3.1",
+
+
+            retrofit2              :"2.9.0",
+            retrofit2ConverterGson :"2.9.0",
+            retrofit2AdapterRxjava2 :"2.9.0",
+            okhttp3LoggingInterceptor :"3.14.9",
+
+
+            dagger2                :"2.43.2",
+            daggerCompiler         :"2.43.2",
+
+            roomVersion            :"2.4.3",
+
+
+            rximagepicker          :"2.5.6",
+            glide                  :"4.3.1",
+
+    ]
+
+    despsLibs = [
+            junit                  :'junit:junit:4.13.2',
+            androidxJunit          :'androidx.test.ext:junit:1.1.3',
+            androidxEspressoCore   :'androidx.test.espresso:espresso-core:3.4.0',
+            appcompat              :'androidx.appcompat:appcompat:1.5.0',
+            material               :'com.google.android.material:material:1.6.1',
+            constraintlayout       :'androidx.constraintlayout:constraintlayout:2.1.4',
+
+            multidex               :"androidx.multidex:multidex:${depsVersion.multidex}",
+
+            // lifecycle components
+            lifecycle_extensions :"androidx.lifecycle:lifecycle-extensions:${depsVersion.lifecycle_extensions}",
+            lifecycle_compiler :"androidx.lifecycle:lifecycle-compiler:${depsVersion.lifecycle_compiler}",
+            lifecycle_viewmodel_ktl :"androidx.lifecycle:lifecycle-viewmodel-ktx:${depsVersion.lifecycle_viewmodel_ktl}",
+
+           //kotlin
+            coreKtx                :'androidx.core:core-ktx:1.7.0',
+            kotlinStdlibJdk7       :'org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.7.0',
+
+            //retrofit
+            retrofit2              :"com.squareup.retrofit2:retrofit:${depsVersion.retrofit2}",
+            retrofit2ConverterGson :"com.squareup.retrofit2:converter-gson:${depsVersion.retrofit2ConverterGson}",
+            retrofit2AdapterRxjava2 :"com.squareup.retrofit2:adapter-rxjava2:${depsVersion.retrofit2AdapterRxjava2}",
+
+            okhttp3LoggingInterceptor :"com.squareup.okhttp3:logging-interceptor:${depsVersion.okhttp3LoggingInterceptor}",
+
+            //dagger
+            dagger2                :"com.google.dagger:dagger:${depsVersion.dagger2}",
+            //不加kapt daggerCompiler 是无法编译出dagger 类的
+            daggerCompiler         :"com.google.dagger:dagger-compiler:${depsVersion.daggerCompiler}",
+
+            // room
+            roomKtx                :"androidx.room:room-ktx:${depsVersion.roomVersion}",
+            roomCompiler           :"androidx.room:room-compiler:${depsVersion.roomVersion}",
+            roomTesting            :"androidx.room:room-testing:${depsVersion.roomVersion}",
+            roomRxJava2            :"androidx.room:room-rxjava2:${depsVersion.roomVersion}",
+
+            //glide
+            glide            :"com.github.bumptech.glide:glide:${depsVersion.glide}",
+            //Image Picker
+            rximagepicker            :"com.github.qingmei2:rximagepicker:${depsVersion.rximagepicker}"
+
+    ]
+}
