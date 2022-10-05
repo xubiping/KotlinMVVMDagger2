@@ -23,8 +23,7 @@ class RestaurantViewModel(
     val TAG: String = "RestaurantViewModel"
 
 
-    fun fetchAndUpsert(): Completable = fetchAndUpsertRestaurantsUseCase.execute().subscribeOn(
-        Schedulers.io())
+    fun fetchAndUpsert(): Completable = fetchAndUpsertRestaurantsUseCase.execute().subscribeOn(Schedulers.io())
 
     lateinit var restaurantsMutableLiveData: MutableLiveData<List<Restaurant>>
     @SuppressLint("CheckResult")

@@ -26,7 +26,10 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
     kotlinOptions {
-        jvmTarget = '1.8'
+        /*jvmTarget = '1.8'*/
+        freeCompilerArgs += [
+                "-Xjvm-default=all",
+        ]
     }
     buildFeatures {//开启布局绑定功能
         viewBinding true
@@ -43,11 +46,12 @@ dependencies {
     androidTestImplementation rootProject.despsLibs.androidxEspressoCore
 
     implementation rootProject.despsLibs.lifecycle_extensions
-    implementation rootProject.despsLibs.lifecycle_compiler
+    annotationProcessor rootProject.despsLibs.lifecycle_compiler
+    implementation rootProject.despsLibs.lifecycle_viewmodel
     implementation rootProject.despsLibs.lifecycle_viewmodel_ktl
 
     implementation rootProject.despsLibs.coreKtx
-    implementation rootProject.despsLibs.kotlinStdlibJdk7
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
 
     implementation rootProject.despsLibs.multidex

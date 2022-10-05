@@ -10,8 +10,8 @@ import com.hw.game.module_sdk.data.db.dao.RestaurantDataDao
 import com.hw.game.module_sdk.data.db.model.EventReportData
 import com.hw.game.module_sdk.data.db.model.MealData
 import com.hw.game.module_sdk.data.db.model.RestaurantData
-
-@Database(entities = [MealData::class, RestaurantData::class, EventReportData::class], version = 1)
+//
+@Database(entities = [MealData::class, RestaurantData::class, EventReportData::class], version = 1,exportSchema=false)
 abstract class RoomDB : RoomDatabase() {
     abstract fun eventReportDao(): EventReportDataDao
     abstract fun mealDao(): MealDataDao

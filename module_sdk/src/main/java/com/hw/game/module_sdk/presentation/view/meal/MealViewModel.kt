@@ -20,29 +20,32 @@ class MealViewModel (
     val fetchAndUpsertMealUseCase: FetchAndUpsertMealUseCase,
     val getMealsByRestaurantIdUseCase: GetMealsByRestaurantIdUseCase,
     val getMealByIdUseCase: GetMealByIdUseCase,
-    ): ViewModel(){
-            //ViewModel 作用在哪，怎么用
-    val TAG:String = "MealViewModel"
+
+    ): ViewModel() {
+
+    val TAG: String = "MealViewModel"
+
     interface GetMealByIdListener{
-        fun onSuccess(meal : Meal)
-        fun onFailed(e:Throwable)
+        fun onSuccess(meal: Meal)
+        fun onFailed(throwable: Throwable)
     }
-    fun fetchAndUpsert():Completable = fetchAndUpsertMealUseCase.execute().subscribeOn(Schedulers.io())
+
+    fun fetchAndUpsert() : Completable = fetchAndUpsertMealUseCase.execute().subscribeOn(Schedulers.io())
 
     lateinit var mealsMutableLiveData: MutableLiveData<List<Meal>>
+    @SuppressLint("CheckResult")
+    fun getMealsByRestaurantId(restaurantId: String) : LiveData<List<Meal>> {
 
-    fun getMealsByRestaurantId(restaurantId:String):LiveData<List<Meal>>{
-        if(!::mealsMutableLiveData.isInitialized){
-            mealsMutableLiveData =  MutableLiveData<List<Meal>>()
+        if(!::mealsMutableLiveData.isInitialized) {
+            mealsMutableLiveData = MutableLiveData<List<Meal>>()
             getMealsByRestaurantIdUseCase.execute(restaurantId)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ meals -> Logger.log( TAG, "onNext: " + meals.size)
+                .subscribe( { meals -> Logger.log( TAG, "onNext: " + meals.size)
                     mealsMutableLiveData.setValue(meals) },
                     { throwable -> Logger.log(TAG,  "onError: " + throwable.localizedMessage) },
                     { Logger.log( TAG, "onComplete: ") },
-                    { disposable -> Logger.log( TAG, "onSubscribe: ") })
-            //subscribe 这里面的内容作用
+                    { disposable -> Logger.log( TAG, "onSubscribe: ") } )
         }
         return mealsMutableLiveData
     }
@@ -57,4 +60,5 @@ class MealViewModel (
                 { throwable -> getMealByIdListener.onFailed(throwable) }
             )
     }
+
 }

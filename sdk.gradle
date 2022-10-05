@@ -13,7 +13,7 @@ ext{
             // lifecycle components
             lifecycle_extensions :"2.0.0",
             lifecycle_compiler :"2.0.0",
-            lifecycle_viewmodel_ktl :"2.3.1",
+            lifecycle_viewmodel_ktl :"2.5.0",
 
 
             retrofit2              :"2.9.0",
@@ -46,11 +46,12 @@ ext{
             // lifecycle components
             lifecycle_extensions :"androidx.lifecycle:lifecycle-extensions:${depsVersion.lifecycle_extensions}",
             lifecycle_compiler :"androidx.lifecycle:lifecycle-compiler:${depsVersion.lifecycle_compiler}",
+            lifecycle_viewmodel : "androidx.lifecycle:lifecycle-viewmodel:${depsVersion.lifecycle_viewmodel_ktl}",
             lifecycle_viewmodel_ktl :"androidx.lifecycle:lifecycle-viewmodel-ktx:${depsVersion.lifecycle_viewmodel_ktl}",
 
            //kotlin
-            coreKtx                :'androidx.core:core-ktx:1.7.0',
-            kotlinStdlibJdk7       :'org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.7.0',
+            coreKtx                :'androidx.core:core-ktx:1.6.0',
+
 
             //retrofit
             retrofit2              :"com.squareup.retrofit2:retrofit:${depsVersion.retrofit2}",

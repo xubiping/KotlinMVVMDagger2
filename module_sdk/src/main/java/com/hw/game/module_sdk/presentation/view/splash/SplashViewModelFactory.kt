@@ -6,12 +6,13 @@ import androidx.lifecycle.ViewModelProvider
 import com.hw.game.module_sdk.presentation.view.meal.MealViewModel
 import com.hw.game.module_sdk.presentation.view.restaurant.RestaurantViewModel
 
-class SplashViewModelFactory (
+class SplashViewModelFactory(
     var application: Application,
-    var restaurantViewModel:RestaurantViewModel,
+    var restaurantViewModel: RestaurantViewModel,
     var mealViewModel: MealViewModel
-):ViewModelProvider.Factory{
-    override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        return SplashViewModel(application,restaurantViewModel, mealViewModel) as T
+): ViewModelProvider.Factory {
+
+    override fun <T :ViewModel> create(modelClass:  Class<T>) : T {
+        return SplashViewModel(application, restaurantViewModel, mealViewModel) as T
     }
 }

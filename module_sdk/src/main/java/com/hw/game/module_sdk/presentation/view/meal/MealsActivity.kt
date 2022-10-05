@@ -17,46 +17,51 @@ import com.hw.game.module_sdk.presentation.view.common.ScreensNavigator
 import javax.inject.Inject
 
 class MealsActivity : BaseActivity() {
+
     private var restaurantId: String = ""
     lateinit var adapter: MealsListAdapter
-    lateinit var binding:ActivityMealsBinding
-
+    lateinit var binding: ActivityMealsBinding
     @Inject lateinit var mealViewModel: MealViewModel
     @Inject lateinit var screensNavigator: ScreensNavigator
-    @Inject lateinit var layoutInflator:LayoutInflater
+    @Inject lateinit var layoutInflator: LayoutInflater
     @Inject lateinit var imageLoader: ImageLoader
 
     companion object{
         const val RESTAURANT_ID: String = "RESTAURANT_ID"
         const val TAG: String = "MealsActivity"
-        fun start(fromActivity: AppCompatActivity,restaurantId:String){
+        fun start(fromActivity: AppCompatActivity, restaurantId: String) {
             Logger.log(TAG,"start: ")
-            val intent = Intent(fromActivity,MealsActivity::class.java)//::class.java 代表？？
-            intent.putExtra(RESTAURANT_ID,restaurantId)
+            val intent = Intent(fromActivity, MealsActivity::class.java)
+            intent.putExtra(RESTAURANT_ID, restaurantId)
+            fromActivity.startActivity(intent)
         }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
         presentationComponent.inject(this)
-        binding = ActivityMealsBinding.inflate(layoutInflator)//ActivityMealsBinding 只对当MealsActivity前类有用，
+        super.onCreate(savedInstanceState)
+        binding = ActivityMealsBinding.inflate(layoutInflator)
         setContentView(binding.root)
-        setSupportActionBar(binding.toolbar)//设置这个作用？？？可以不设置吗？？
+        setSupportActionBar(binding.toolbar)
 
-        if(intent.hasExtra(RESTAURANT_ID)){
-            restaurantId = intent.getStringExtra(RESTAURANT_ID)!!//这里为什么一定要!!
+        if(intent.hasExtra(RESTAURANT_ID)) {
+            restaurantId = intent.getStringExtra(RESTAURANT_ID)!!
         }
         Logger.log( TAG,"onCreate: typeId: $restaurantId")
-        adapter = MealsListAdapter(this,layoutInflator,imageLoader)// 为什么也用 layoutInflator
 
-        adapter.onMealItemClicked = {mealId ->  screensNavigator.toMealDetailsActivity(mealId)}//输入为什么回自动弹出 mealId
+        adapter = MealsListAdapter(this,
+            layoutInflator,
+            imageLoader)
+
+        adapter.onMealItemClicked = { mealId -> screensNavigator.toMealDetailsActivity(mealId) }
 
         binding.recyclerview.adapter = adapter
-        binding.recyclerview.layoutManager = LinearLayoutManager(this)//LinearLayoutManager 作用
+        binding.recyclerview.layoutManager = LinearLayoutManager(this)
 
         setAdapterList()
 
     }
+
     fun setAdapterList() {
         mealViewModel.getMealsByRestaurantId(restaurantId).observe(this, { meals ->
             adapter.setList(meals)

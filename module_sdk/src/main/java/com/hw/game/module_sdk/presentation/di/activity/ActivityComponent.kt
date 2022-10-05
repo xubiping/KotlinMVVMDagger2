@@ -5,7 +5,8 @@ import com.hw.game.module_sdk.presentation.di.persentation.PresentationComponent
 import com.hw.game.module_sdk.presentation.di.persentation.PresentationModule
 import dagger.Subcomponent
 
+@ActivityScope
 @Subcomponent(modules = [ActivityModule::class])
 interface ActivityComponent {
-    fun newPresentationComponent(presentationModule: PresentationModule):PresentationComponent
+    fun newPresentationComponent(presentationModule: PresentationModule): PresentationComponent
 }

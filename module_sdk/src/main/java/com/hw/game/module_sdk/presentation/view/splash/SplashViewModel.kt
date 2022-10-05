@@ -9,22 +9,28 @@ import com.hw.game.module_sdk.presentation.view.restaurant.RestaurantViewModel
 import io.reactivex.Completable
 import io.reactivex.schedulers.Schedulers
 
-class SplashViewModel(
+class SplashViewModel (
     val application: Application,
     val restaurantViewModel: RestaurantViewModel,
-    val mealViewModel:MealViewModel
-    ):ViewModel() {
-    val TAG:String ="SplashViewModel";
+    val mealViewModel: MealViewModel
+) : ViewModel() {
+
+    val TAG: String = "SplashViewModel"
+
     interface AllUpsertedListener{
         fun onSuccess()
-        fun onFailed(e:Throwable)
+        fun onFailed(e: Throwable)
     }
 
-    @SuppressLint("CheckResult") //为什么要加这个，不加有什么影响呢？？
+    @SuppressLint("CheckResult")
     fun fetchAllData(allUpsertedListener: AllUpsertedListener){
-        val mealCompletable:Completable = mealViewModel.fetchAndUpsert()
+
+        Logger.log( TAG, "startDownload: ")
+
+        val mealCompletable: Completable = mealViewModel.fetchAndUpsert()
         val restaurantCompletable: Completable = restaurantViewModel.fetchAndUpsert()
-        val all = Completable.mergeArray(mealCompletable,restaurantCompletable)//Completable 得到complete 或者 error
+        val all = Completable.mergeArray(mealCompletable, restaurantCompletable)
+
         all.subscribeOn(Schedulers.io())
             .observeOn(Schedulers.io())
             .subscribe(
@@ -38,6 +44,5 @@ class SplashViewModel(
         Completable.complete()
 
     }
-
 
 }

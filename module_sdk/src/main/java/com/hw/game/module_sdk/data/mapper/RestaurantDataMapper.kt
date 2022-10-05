@@ -1,8 +1,8 @@
 package com.falcon.restaurants.data.mapper
 
 import com.falcon.restaurants.data.net.model.RestaurantDto
-import com.falcon.restaurants.data.db.model.RestaurantData
 import com.falcon.restaurants.domain.model.Restaurant
+import com.hw.game.module_sdk.data.db.model.RestaurantData
 import javax.inject.Inject
 
 class RestaurantDataMapper @Inject constructor() {

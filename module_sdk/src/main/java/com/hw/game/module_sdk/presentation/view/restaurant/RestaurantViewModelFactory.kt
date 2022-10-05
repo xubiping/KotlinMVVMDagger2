@@ -19,5 +19,4 @@ class RestaurantViewModelFactory(
             getRestaurantsUseCase
         ) as T
     }
-
 }

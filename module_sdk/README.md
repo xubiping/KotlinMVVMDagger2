@@ -43,4 +43,12 @@ ViewModelProvider.Factory 负责帮你创建 ViewModel 实例。当你的 ViewMo
 你需要创建自己的 ViewModelProvider.Factory 来通过 ViewModel 的构造方法传递依赖项，将你的数值传入 ViewModelProvider.Factory 实例中去
 
 7、::class.java 
+
+
+8、com.hw.game.module_sdk.data.db  RoomDB 不添加这个 exportSchema=false
+   会报：
+Schema export directory is not provided to the annotation processor so we cannot export the schema. You can either provide room.schemaLocation annotation processor argument OR set exportSchema to false.
+Schema是数据库的组织和结构，exportSchema指暴露数据库的组织架构到一个文件夹，这个文件夹通过room.schemaLocation指定。Schema记录了数据库的组织和结构，并带有版本信息，所以不适合在发布的app中的文件夹中，而是最好指定到版本控制系统中，默认为true打开状态。所以系统编译是，提醒你。
+
+
   

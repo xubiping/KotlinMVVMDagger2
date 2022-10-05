@@ -22,3 +22,4 @@ class MealViewModelFactory(
         ) as T
     }
 }
+

@@ -15,14 +15,16 @@ import com.hw.game.module_sdk.presentation.view.common.ImageLoader
 import com.hw.game.module_sdk.presentation.view.common.ScreensNavigator
 import javax.inject.Inject
 
-class RestaurantsActivity :BaseActivity(){
+class RestaurantsActivity : BaseActivity() {
+
     val TAG: String = "RestaurantsActivity"
-    lateinit var adapter:RestaurantsListAdapter
+    lateinit var adapter: RestaurantsListAdapter
     lateinit var binding: ActivityRestaurantsBinding
 
     @Inject lateinit var restaurantViewModel: RestaurantViewModel
     @Inject lateinit var screensNavigator: ScreensNavigator
-    @Inject lateinit var layoutInflator:LayoutInflater
+    //@Inject lateinit var dialogsNavigator: DialogsNavigator
+    @Inject lateinit var layoutInflator: LayoutInflater
     @Inject lateinit var imageLoader: ImageLoader
 
     companion object {
@@ -81,5 +83,4 @@ class RestaurantsActivity :BaseActivity(){
     override fun onContextItemSelected(item: MenuItem): Boolean {
         return true
     }
-
 }
