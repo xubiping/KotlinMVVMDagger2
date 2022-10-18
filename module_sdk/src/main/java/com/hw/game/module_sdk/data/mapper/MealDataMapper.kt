@@ -1,7 +1,7 @@
-package com.falcon.restaurants.data.mapper
+package com.hw.game.module_sdk.data.mapper
 
-import com.falcon.restaurants.data.net.model.MealDto
-import com.falcon.restaurants.domain.model.Meal
+import com.hw.game.module_sdk.data.net.model.MealDto
+import com.hw.game.module_sdk.domain.model.Meal
 import com.hw.game.module_sdk.data.db.model.MealData
 import javax.inject.Inject
 

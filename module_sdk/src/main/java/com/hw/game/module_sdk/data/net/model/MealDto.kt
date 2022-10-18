@@ -1,4 +1,4 @@
-package com.falcon.restaurants.data.net.model;
+package com.hw.game.module_sdk.data.net.model;
 
 data class MealDto(
     val id: String,

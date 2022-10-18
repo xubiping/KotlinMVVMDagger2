@@ -1,7 +1,7 @@
 package com.hw.game.module_sdk.data.db.dao
 
 import androidx.room.*
-import com.falcon.restaurants.domain.util.Logger
+import com.hw.game.module_sdk.domain.util.Logger
 
 @Dao
 abstract class BaseDao<T> {

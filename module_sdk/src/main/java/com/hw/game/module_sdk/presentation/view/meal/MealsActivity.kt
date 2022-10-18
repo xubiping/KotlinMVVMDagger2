@@ -7,9 +7,8 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.falcon.restaurants.domain.util.Logger
+import com.hw.game.module_sdk.domain.util.Logger
 import com.hw.game.module_sdk.R
-import com.hw.game.module_sdk.databinding.ActivityMealDetailsBinding
 import com.hw.game.module_sdk.databinding.ActivityMealsBinding
 import com.hw.game.module_sdk.presentation.view.common.BaseActivity
 import com.hw.game.module_sdk.presentation.view.common.ImageLoader

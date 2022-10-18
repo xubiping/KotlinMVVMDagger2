@@ -4,8 +4,8 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.falcon.restaurants.domain.model.Meal
-import com.falcon.restaurants.domain.util.Logger
+import com.hw.game.module_sdk.domain.model.Meal
+import com.hw.game.module_sdk.domain.util.Logger
 import com.hw.game.module_sdk.data.net.Constants
 import com.hw.game.module_sdk.databinding.RecyclerviewMealItemBinding
 import com.hw.game.module_sdk.presentation.view.common.ImageLoader

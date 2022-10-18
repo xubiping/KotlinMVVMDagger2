@@ -3,8 +3,8 @@ package com.hw.game.module_sdk.presentation.view.restaurant
 import android.app.Application
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.falcon.restaurants.domain.interactor.restaurant.FetchAndUpsertRestaurantsUseCase
-import com.falcon.restaurants.domain.interactor.restaurant.GetRestaurantsUseCase
+import com.hw.game.module_sdk.domain.interactor.restaurant.FetchAndUpsertRestaurantsUseCase
+import com.hw.game.module_sdk.domain.interactor.restaurant.GetRestaurantsUseCase
 
 class RestaurantViewModelFactory(
     var application: Application,

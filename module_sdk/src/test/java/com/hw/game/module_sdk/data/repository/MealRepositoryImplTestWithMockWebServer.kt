@@ -1,0 +1,67 @@
+package com.hw.game.module_sdk.data.repository
+
+import com.hw.game.module_sdk.data.mapper.MealDataMapper
+import com.hw.game.module_sdk.domain.model.Meal
+import com.hw.game.module_sdk.data.MockWebServerUtil
+import com.hw.game.module_sdk.data.db.dao.MealDataDao
+import com.hw.game.module_sdk.data.net.RetrofitInterface
+import okhttp3.mockwebserver.MockWebServer
+import org.junit.After
+import org.junit.Before
+import org.junit.Test
+import org.junit.runner.RunWith
+import org.mockito.Mock
+import org.mockito.Spy
+import org.mockito.junit.MockitoJUnitRunner
+
+@RunWith(MockitoJUnitRunner::class)
+class MealRepositoryImplTestWithMockWebServer {
+    lateinit var SUT: MealRepositoryImpl
+    @Mock lateinit var mealDataDao: MealDataDao
+    lateinit var retrofitInterface: RetrofitInterface
+    @Spy lateinit var mealDateMapper: MealDataMapper
+
+    private lateinit var mockWebServer:MockWebServer
+    val meals = MockWebServerUtil.createMeals()
+
+    @Before
+    fun setUp(){
+        mockWebServer = MockWebServer()
+        retrofitInterface = MockWebServerUtil.getRetrofitInterfaceMock(mockWebServer)
+        SUT = MealRepositoryImpl(mealDataDao,retrofitInterface,mealDateMapper)
+    }
+
+    @After
+    fun shutdownServer(){
+        mockWebServer.shutdown()
+    }
+
+    @Test
+    fun fetchMeals_WhenCorrectResponse_ReturnCorrectParsedList(){
+        // arrange
+        MockWebServerUtil.setMockWebServerResponse(mockWebServer,MockWebServerUtil.getSuccessMealsResponse())
+        //act
+        val testObserver = SUT.fetchMeals().test()
+        // assert
+        testObserver.assertResult(meals)
+        testObserver.assertComplete()
+        testObserver.assertValue { meals -> meals[0].id.equals("id1") }
+        testObserver.assertValue { meals -> meals.size == 3 }
+        testObserver.assertValue { meals -> meals is List<Meal> }
+        testObserver.assertValueCount(1)
+
+    }
+
+    @Test
+    fun fetchMeals_WhenEmptyResponse_ReturnEmptyList(){
+        // arrange
+        MockWebServerUtil.setMockWebServerResponse(mockWebServer, MockWebServerUtil.getEmptyMealsResponse())
+        // act
+        val testObserver = SUT.fetchMeals().test()
+        // assert
+        testObserver.assertComplete()
+        testObserver.assertValue { meals -> meals.size == 0 }
+        testObserver.assertValue { meals -> meals is List<Meal> }
+    }
+
+}

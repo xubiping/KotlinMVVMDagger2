@@ -1,7 +1,7 @@
-package com.falcon.restaurants.data.repository
+package com.hw.game.module_sdk.data.repository
 
-import com.falcon.restaurants.data.mapper.RestaurantDataMapper
-import com.falcon.restaurants.domain.model.Restaurant
+import com.hw.game.module_sdk.data.mapper.RestaurantDataMapper
+import com.hw.game.module_sdk.domain.model.Restaurant
 import com.falcon.restaurants.domain.repository.RestaurantRepository
 import com.hw.game.module_sdk.data.db.dao.RestaurantDataDao
 import com.hw.game.module_sdk.data.net.RetrofitInterface

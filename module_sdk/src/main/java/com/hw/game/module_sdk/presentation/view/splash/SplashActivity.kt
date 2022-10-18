@@ -3,7 +3,7 @@ package com.hw.game.module_sdk.presentation.view.splash
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
-import com.falcon.restaurants.domain.util.Logger
+import com.hw.game.module_sdk.domain.util.Logger
 import com.hw.game.module_sdk.databinding.ActivitySplashBinding
 import com.hw.game.module_sdk.presentation.view.common.BaseActivity
 import com.hw.game.module_sdk.presentation.view.common.ScreensNavigator

@@ -1,11 +1,6 @@
 package com.hw.game.module_sdk.domain.interactor.meal
-import com.falcon.restaurants.domain.model.Meal
-import com.falcon.restaurants.domain.repository.MealRepository
 import io.reactivex.Completable
 import javax.inject.Inject
-import io.reactivex.Observable
-import io.reactivex.Single
-import io.reactivex.schedulers.Schedulers
 
 class FetchAndUpsertMealUseCase @Inject constructor (
         private val fetchMealsUseCase: FetchMealsUseCase,

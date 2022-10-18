@@ -1,7 +1,7 @@
 package com.hw.game.module_sdk.data.net
 
-import com.falcon.restaurants.data.net.model.MealDto
-import com.falcon.restaurants.data.net.model.RestaurantDto
+import com.hw.game.module_sdk.data.net.model.MealDto
+import com.hw.game.module_sdk.data.net.model.RestaurantDto
 import io.reactivex.Single
 import retrofit2.http.*
 

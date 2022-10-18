@@ -1,5 +1,5 @@
 package com.falcon.restaurants.domain.repository
-import com.falcon.restaurants.domain.model.Meal
+import com.hw.game.module_sdk.domain.model.Meal
 import io.reactivex.Completable
 import io.reactivex.Observable
 import io.reactivex.Single

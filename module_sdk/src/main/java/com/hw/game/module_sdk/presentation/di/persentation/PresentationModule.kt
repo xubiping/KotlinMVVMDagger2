@@ -3,12 +3,11 @@ package com.hw.game.module_sdk.presentation.di.persentation
 import android.app.Application
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProviders
-import com.falcon.restaurants.data.mapper.MealDataMapper
-import com.falcon.restaurants.data.mapper.RestaurantDataMapper
-import com.falcon.restaurants.data.repository.MealRepositoryImpl
-import com.falcon.restaurants.data.repository.RestaurantRepositoryImpl
-import com.falcon.restaurants.domain.interactor.restaurant.FetchAndUpsertRestaurantsUseCase
-import com.falcon.restaurants.domain.interactor.restaurant.GetRestaurantsUseCase
+import com.hw.game.module_sdk.data.mapper.MealDataMapper
+import com.hw.game.module_sdk.data.mapper.RestaurantDataMapper
+import com.hw.game.module_sdk.data.repository.MealRepositoryImpl
+import com.hw.game.module_sdk.domain.interactor.restaurant.FetchAndUpsertRestaurantsUseCase
+import com.hw.game.module_sdk.domain.interactor.restaurant.GetRestaurantsUseCase
 import com.falcon.restaurants.domain.repository.MealRepository
 import com.falcon.restaurants.domain.repository.RestaurantRepository
 import com.hw.game.module_sdk.data.db.RoomDB
@@ -18,6 +17,7 @@ import com.hw.game.module_sdk.data.db.dao.RestaurantDataDao
 import com.hw.game.module_sdk.data.mapper.EventReportDataMapper
 import com.hw.game.module_sdk.data.net.RetrofitInterface
 import com.hw.game.module_sdk.data.repository.EventReportRepositoryImpl
+import com.hw.game.module_sdk.data.repository.RestaurantRepositoryImpl
 import com.hw.game.module_sdk.domain.interactor.meal.FetchAndUpsertMealUseCase
 import com.hw.game.module_sdk.domain.interactor.meal.GetMealByIdUseCase
 import com.hw.game.module_sdk.domain.interactor.meal.GetMealsByRestaurantIdUseCase

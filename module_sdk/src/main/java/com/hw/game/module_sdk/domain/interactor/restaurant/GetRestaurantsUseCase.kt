@@ -1,6 +1,6 @@
-package com.falcon.restaurants.domain.interactor.restaurant
+package com.hw.game.module_sdk.domain.interactor.restaurant
 
-import com.falcon.restaurants.domain.model.Restaurant
+import com.hw.game.module_sdk.domain.model.Restaurant
 import com.falcon.restaurants.domain.repository.RestaurantRepository
 import io.reactivex.Observable
 import javax.inject.Inject

@@ -4,7 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.falcon.restaurants.domain.model.Restaurant
+import com.hw.game.module_sdk.domain.model.Restaurant
 import com.hw.game.module_sdk.data.net.Constants
 import com.hw.game.module_sdk.databinding.RecyclerviewRestaurantItemBinding
 import com.hw.game.module_sdk.presentation.view.common.ImageLoader

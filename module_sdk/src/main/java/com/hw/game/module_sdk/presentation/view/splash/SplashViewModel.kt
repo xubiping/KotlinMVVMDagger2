@@ -3,7 +3,7 @@ package com.hw.game.module_sdk.presentation.view.splash
 import android.annotation.SuppressLint
 import android.app.Application
 import androidx.lifecycle.ViewModel
-import com.falcon.restaurants.domain.util.Logger
+import com.hw.game.module_sdk.domain.util.Logger
 import com.hw.game.module_sdk.presentation.view.meal.MealViewModel
 import com.hw.game.module_sdk.presentation.view.restaurant.RestaurantViewModel
 import io.reactivex.Completable

@@ -3,8 +3,8 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import androidx.appcompat.app.AppCompatActivity
-import com.falcon.restaurants.domain.model.Meal
-import com.falcon.restaurants.domain.util.Logger
+import com.hw.game.module_sdk.domain.model.Meal
+import com.hw.game.module_sdk.domain.util.Logger
 import com.hw.game.module_sdk.data.net.Constants
 import com.hw.game.module_sdk.databinding.ActivityMealDetailsBinding
 import com.hw.game.module_sdk.presentation.view.common.BaseActivity

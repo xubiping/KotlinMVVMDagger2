@@ -28,6 +28,9 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    buildFeatures {//开启布局绑定功能
+        viewBinding true
+    }
 }
 
 dependencies {

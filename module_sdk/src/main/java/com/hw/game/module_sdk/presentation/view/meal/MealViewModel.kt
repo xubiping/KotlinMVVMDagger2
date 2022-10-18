@@ -5,13 +5,12 @@ import android.app.Application
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.falcon.restaurants.domain.model.Meal
-import com.falcon.restaurants.domain.util.Logger
+import com.hw.game.module_sdk.domain.model.Meal
+import com.hw.game.module_sdk.domain.util.Logger
 import com.hw.game.module_sdk.domain.interactor.meal.FetchAndUpsertMealUseCase
 import com.hw.game.module_sdk.domain.interactor.meal.GetMealByIdUseCase
 import com.hw.game.module_sdk.domain.interactor.meal.GetMealsByRestaurantIdUseCase
 import io.reactivex.Completable
-import io.reactivex.Scheduler
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 

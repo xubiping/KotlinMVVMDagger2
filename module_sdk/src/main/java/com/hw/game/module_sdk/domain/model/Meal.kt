@@ -1,4 +1,4 @@
-package com.falcon.restaurants.domain.model
+package com.hw.game.module_sdk.domain.model
 
 data class Meal (
     val id: String,
